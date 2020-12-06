@@ -10,7 +10,8 @@ public class Project {
 	private ArrayList<Employee> employeesOnProject = new ArrayList<Employee>();
 	private Date start, end;
 	
-	public Project(String projName, String projDescription, int earnings, int spendings, Date start, Date end) {
+	public Project(String projName, String projDescription, int earnings, 
+			int spendings, Date start, Date end) {
 		super();
 		this.projName = projName;
 		this.projDescription = projDescription;
@@ -93,8 +94,9 @@ public class Project {
 		return projectSalaries;
 	}
 	
-	public void calculateProjectEarnings() {
+	public int calculateProjectEarnings() {
 		this.earnings = earnings - spendings - calculateProjectsSalaries();
+		return this.earnings;
 	}
 	
 }

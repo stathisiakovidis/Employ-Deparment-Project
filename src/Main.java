@@ -1,14 +1,24 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy");
 		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm:ss");
-		//Scanner input = new Scanner(System.in);
+		
+		GUI g = new GUI();
+		
+		Date start = formatter.parse("06-12-2020");
+		Date end = formatter.parse("12-12-2020");
+		ArrayList<Project> allProjects = new ArrayList<Project>();
+		Project project1 = new Project("Project1", "A demo project", 
+				10000, 300, start,end);
+		
+		allProjects.add(project1);	
+		findBestProject(allProjects);
 		
 		Department dep = new Department();
 		Employee e1 = null;
@@ -29,50 +39,19 @@ public class Main {
 		System.out.println(dir1.getFirstName());
 		System.out.println(formatter1.format(dir1.getDirRecruitementDate()));
 		
-		/*String employName;
-		String employLastName;
-		Date employBirtdayDate = null;
-		String employFamilyCondition;
-		int employChildrenNum;
-		int employRecruitementYear;
-		String employSpecialization;
-		String employDegree;
 		
-		System.out.println("Παρακαλώ εισάγεται το όνομα σας: ");
-		employName = input.next();
-		
-		System.out.println("Παρακαλώ εισάγεται το επίθετο σας: ");
-		employLastName = input.next();
-		
-		System.out.println("Παρακαλώ εισάγεται την ημερομηνία γέννησης σας: ");
-		String date = input.next();
-		try {
-			employBirtdayDate = formatter2.parse(date);
-		}catch(ParseException e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println("Παρακαλώ εισάγεται την οικογενειακή σας κατάσταση: ");
-		employFamilyCondition = input.next();
-		
-		System.out.println("Παρακαλώ εισάγεται τον αριθμό των παδιών σας: ");
-		employChildrenNum = input.nextInt();
-		
-		System.out.println("Παρακαλώ εισάγεται το έτος πρόσληψης σας: ");
-		employRecruitementYear = input.nextInt();
-				
-		System.out.println("Παρακαλώ εισάγεται την ειδικότητα σας: ");
-		employSpecialization = input.next();
-		
-		System.out.println("Παρακαλώ εισάγεται τον τίτλο του πτυχίου σας: ");
-		employDegree = input.next();
-
-		Employee e = new Employee(employName, employLastName, employBirtdayDate, 
-				employFamilyCondition, employChildrenNum, employRecruitementYear, employSpecialization, employDegree);*/
-		
-		/*System.out.println(employName + employLastName + formatter2.format(employBirtdayDate) + 
-				employFamilyCondition + employChildrenNum + employRecruitementYear + employSpecialization + employDegree);*/
-		//dep.setDepartmentDirector((DepartmentDirector) e);
 	}
+	
+	public static void findBestProject(ArrayList<Project> allProjects) {
+		int max = 0;
+		Project maxProject;
+		for (Project p : allProjects) {
+			if(max<p.calculateProjectEarnings()) {
+				max = p.calculateProjectEarnings();
+				maxProject = p;
+			}
+		}
+	}
+	
 
 }
