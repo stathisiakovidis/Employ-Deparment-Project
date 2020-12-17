@@ -39,7 +39,6 @@ public class Main {
 		System.out.println(dir1.getFirstName());
 		System.out.println(formatter1.format(dir1.getDirRecruitementDate()));
 		
-		
 	}
 	
 	public static void findBestProject(ArrayList<Project> allProjects) {
