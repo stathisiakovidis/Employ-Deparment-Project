@@ -1,17 +1,31 @@
 import java.awt.*;
-import java.util.concurrent.BrokenBarrierException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 
-public class GUI {
-	private JFrame frame;
-	private JMenuBar menuBar;
-	private JMenu m1, m2;
-	private JMenuItem m11, m22;
-	private JPanel panel1, panel2;
-	private JSplitPane mainPanel;
-	private ImageIcon img;
+public class GUI implements ActionListener{
+	JFrame frame;
+	JMenuBar menuBar;
+	JMenu m1, m2;
+	JMenuItem m11, m22;
+	JPanel panel1, panel2;
+	JSplitPane mainPanel;
+	ImageIcon img;
+	JLabel createLabel = new JLabel("Δημιουργία", JLabel.CENTER);
+	JLabel setProjectLabel = new JLabel("Αναθέσεις & Ενημέρωση", JLabel.CENTER);
+	JLabel displayLabel = new JLabel("Εμφάνιση", JLabel.CENTER);
+	JButton addDepartmentButton = new JButton("Εισαγωγή τμήματος");
+	JButton addEmployeeButton = new JButton("Εισαγωγή υπαλλήλου");
+	JButton addProjectButton = new JButton("Εισαγωγή έργων");
+	JButton setProjectButton = new JButton("Εμφάνιση αναθέσεων");
+	JButton updateButton = new JButton("Ενημέρωση δεδομένων");
+	JButton displayDeprtmentButton = new JButton("Εμφάνιση όλων των τμημάτων");
+	JButton displayEmployeeButton = new JButton("Εμφάνιση όλων των υπαλλήλων");
+	JButton displayProjectButton = new JButton("Εμφάνιση όλων των έργων");
+	JButton displaySalariesButton = new JButton("Εμφάνιση μισθοδοσίας υπαλλήλων");
+	JButton displayEarningsButton = new JButton("Εμφάνιση εσόδων της εταιρίας");
 
 	public GUI() {
 		// Dhmiourgia tou Frame provolis
@@ -44,25 +58,12 @@ public class GUI {
 		Image newimg = image.getScaledInstance(300, 250, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
 		img = new ImageIcon(newimg); // transform it back
 		JLabel imgLabel = new JLabel("", img, JLabel.CENTER);
-		imgLabel.setBorder(BorderFactory.createEmptyBorder(100, 0, 0, 10));
+		imgLabel.setBorder(BorderFactory.createEmptyBorder(90, 0, 0, 10));
 		panel1.add(imgLabel, BorderLayout.CENTER);
 		
 		//Dhmiourgia tou kurious panel twn epilogwn tou xristi 
 		//dhladh thn kuria diepafi
 		panel2.setLayout(new BoxLayout(panel2, BoxLayout.Y_AXIS));
-		JLabel createLabel = new JLabel("Δημιουργία", JLabel.CENTER);
-		JLabel setProjectLabel = new JLabel("Αναθέσεις & Ενημέρωση", JLabel.CENTER);
-		JLabel displayLabel = new JLabel("Εμφάνιση", JLabel.CENTER);
-		JButton addDepartmentButton = new JButton("Εισαγωγή τμήματος");
-		JButton addEmployeeButton = new JButton("Εισαγωγή υπαλλήλου");
-		JButton addProjectButton = new JButton("Εισαγωγή έργων");
-		JButton setProjectButton = new JButton("Εμφάνιση αναθέσεων");
-		JButton updateButton = new JButton("Ενημέρωση δεδομένων");
-		JButton displayDeprtmentButton = new JButton("Εμφάνιση όλων των τμημάτων");
-		JButton displayEmployeeButton = new JButton("Εμφάνιση όλων των υπαλλήλων");
-		JButton displayProjectButton = new JButton("Εμφάνιση όλων των έργων");
-		JButton displaySalariesButton = new JButton("Εμφάνιση μισθοδοσίας υπαλλήλων");
-		JButton displayEarningsButton = new JButton("Εμφάνιση εσόδων της εταιρίας");
 		
 		//Ruthmiseis emfanisis twn Label kai twn Button
 		createLabel.setFont(font);
@@ -90,6 +91,9 @@ public class GUI {
 		panel2.add(displayProjectButton);
 		panel2.add(displaySalariesButton);
 		panel2.add(displayEarningsButton);
+		
+		addDepartmentButton.addActionListener(this);
+		addEmployeeButton.addActionListener(this);
 
 		//Eisagwgi twn 2 upopanel sto kuriws panel kai
 		//xwrismos me mia katheti grammi
@@ -110,6 +114,31 @@ public class GUI {
 		m22 = new JMenuItem("Save as");
 		m1.add(m11);
 		m1.add(m22);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == addDepartmentButton) {
+			new AddDepartmentFrame();
+		}else if(e.getSource() == addEmployeeButton) {
+			
+		}else if(e.getSource() == addProjectButton) {
+			
+		}else if(e.getSource() == setProjectButton) {
+			
+		}else if(e.getSource() == updateButton) {
+			
+		}else if(e.getSource() == displayDeprtmentButton) {
+			
+		}else if(e.getSource() == displayEarningsButton) {
+			
+		}else if(e.getSource() == displayEmployeeButton) {
+			
+		}else if(e.getSource() == displayProjectButton) {
+			
+		}else if(e.getSource() == displaySalariesButton) {
+			
+		}
 	}
 
 }
