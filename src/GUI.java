@@ -121,7 +121,7 @@ public class GUI implements ActionListener{
 		if(e.getSource() == addDepartmentButton) {
 			new AddDepartmentFrame();
 		}else if(e.getSource() == addEmployeeButton) {
-			
+			new AddEmployeeFrame();
 		}else if(e.getSource() == addProjectButton) {
 			
 		}else if(e.getSource() == setProjectButton) {

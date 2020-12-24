@@ -12,7 +12,7 @@ public class Main {
 		SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy");
 		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm:ss");
 		
-		GUI g = new GUI();
+		new GUI();
 		
 	}
 	

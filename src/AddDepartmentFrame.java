@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -15,7 +16,8 @@ public class AddDepartmentFrame implements ActionListener{
 	JTextArea depDescriptionText;
 	JButton confirmButton;
 	JPanel depPanel;
-	JComboBox<Employee> directorMenu;
+	JComboBox<String> directorMenu;
+	
 	public AddDepartmentFrame() {
 		Font font = new Font("Sans Serif", Font.BOLD, 16);
 		Border bor = BorderFactory.createEmptyBorder(20, 10, 10, 10);
@@ -43,9 +45,9 @@ public class AddDepartmentFrame implements ActionListener{
 		depPanel.add(depNameText);
 		depPanel.add(depDescriptionLabel);
 		depPanel.add(depDescriptionText);
+		depPanel.add(directorMenu);
 		depPanel.add(confirmButton);
 		
-		depPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 	    depPanel.setMaximumSize(new Dimension(300, 500));
 				
 		frame.getContentPane().add(depPanel);
@@ -69,7 +71,17 @@ public class AddDepartmentFrame implements ActionListener{
 	}
 	
 	public void createDirectorMenu() {
-		directorMenu = new JComboBox<>();
+		ArrayList<String> names = new ArrayList<String>();		
+		String[] choices = {"Επιλογή..."};
+		for(Employee e : Main.allEmployees) {
+			names.add(e.getFirstName() +" "+ e.getLastName());	
+		}
+		
+		if(names.isEmpty() ==false) {
+			choices = (String[]) names.toArray();
+		}
+		
+		directorMenu = new JComboBox<>(choices);
 		
 	}
 	
