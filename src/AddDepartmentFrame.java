@@ -1,4 +1,3 @@
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -17,10 +16,11 @@ public class AddDepartmentFrame implements ActionListener{
 	JButton confirmButton;
 	JPanel depPanel;
 	JComboBox<String> directorMenu;
+	private JLabel depDirectorLabel;
 	
 	public AddDepartmentFrame() {
 		Font font = new Font("Sans Serif", Font.BOLD, 16);
-		Border bor = BorderFactory.createEmptyBorder(20, 10, 10, 10);
+		Border bor = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 		frame = new JFrame("Add Department");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
@@ -39,19 +39,23 @@ public class AddDepartmentFrame implements ActionListener{
 		depDescriptionLabel.setFont(font);
 		depDescriptionLabel.setBorder(bor);
 		
+		depDirectorLabel = new JLabel("Διευθυντής Τμήματος");
+		depDirectorLabel.setFont(font);
+		depDirectorLabel.setBorder(bor);
 		createDirectorMenu();
 		
 		depPanel.add(depNameLabel);
 		depPanel.add(depNameText);
 		depPanel.add(depDescriptionLabel);
 		depPanel.add(depDescriptionText);
+		depPanel.add(depDirectorLabel);
 		depPanel.add(directorMenu);
 		depPanel.add(confirmButton);
 		
 	    depPanel.setMaximumSize(new Dimension(300, 500));
 				
 		frame.getContentPane().add(depPanel);
-		frame.setSize(300, 500);
+		frame.setSize(400, 500);
 		frame.setVisible(true);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		frame.setLocation(dim.width / 2 - frame.getSize().width / 2, dim.height / 2 - frame.getSize().height / 2);

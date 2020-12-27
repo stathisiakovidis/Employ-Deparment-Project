@@ -95,7 +95,7 @@ public class AddEmployeeFrame implements ActionListener{
 		employeePane.add(degreeMenu);
 		employeePane.add(confirmButton);
 		
-	    employeePane.setMaximumSize(new Dimension(300, 500));
+	    employeePane.setMaximumSize(new Dimension(300, 400));
 
 		frame.getContentPane().add(employeePane);
 		frame.setSize(400, 400);
@@ -129,17 +129,15 @@ public class AddEmployeeFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == confirmButton) {
-			String firstName = firstNameText.getText();
-			String lastName = lastNameText.getText();
-			Date birtdayDate = (Date) datePicker.getModel().getValue();
-			String familyCondition = String.valueOf(familyConditionMenu.getSelectedItem());
-			
-			int numOfChildren = 0;
-			int yearOfRecruitment = 0;
+		if(e.getSource() == confirmButton) {			
 			try {
-				numOfChildren  = Integer.valueOf(numOfChildrenText.getText());
-				yearOfRecruitment = Integer.valueOf(yearOfRecruitmentText.getText());
+				String firstName = firstNameText.getText();
+				String lastName = lastNameText.getText();
+				Date birtdayDate = (Date) datePicker.getModel().getValue();
+				String familyCondition = String.valueOf(familyConditionMenu.getSelectedItem());
+				
+				int numOfChildren  = Integer.valueOf(numOfChildrenText.getText());
+				int yearOfRecruitment = Integer.valueOf(yearOfRecruitmentText.getText());
 				String specialization = specializationText.getText();
 				String degree = String.valueOf(degreeMenu.getSelectedItem());
 				

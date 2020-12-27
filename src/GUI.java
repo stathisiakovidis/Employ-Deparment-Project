@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -94,6 +96,7 @@ public class GUI implements ActionListener{
 		
 		addDepartmentButton.addActionListener(this);
 		addEmployeeButton.addActionListener(this);
+		addProjectButton.addActionListener(this);
 
 		//Eisagwgi twn 2 upopanel sto kuriws panel kai
 		//xwrismos me mia katheti grammi
@@ -114,6 +117,8 @@ public class GUI implements ActionListener{
 		m22 = new JMenuItem("Save as");
 		m1.add(m11);
 		m1.add(m22);
+		m11.addActionListener(this);
+		m22.addActionListener(this);
 	}
 
 	@Override
@@ -123,7 +128,7 @@ public class GUI implements ActionListener{
 		}else if(e.getSource() == addEmployeeButton) {
 			new AddEmployeeFrame();
 		}else if(e.getSource() == addProjectButton) {
-			
+			new AddProjectFrame();
 		}else if(e.getSource() == setProjectButton) {
 			
 		}else if(e.getSource() == updateButton) {
@@ -137,6 +142,21 @@ public class GUI implements ActionListener{
 		}else if(e.getSource() == displayProjectButton) {
 			
 		}else if(e.getSource() == displaySalariesButton) {
+			
+		}else if (e.getSource() == m11) {
+		    // on Windows, retrieve the path of the "Program Files" folder
+		    File file = new File(System.getenv("programfiles"));
+
+		    try {
+		      if (Desktop.isDesktopSupported()) {
+		         Desktop desktop = Desktop.getDesktop();
+		         desktop.open(file);
+		      	}
+		     }catch (IOException e1){  
+		    	 
+		     }
+	
+		 }else if (e.getSource() == m22) {
 			
 		}
 	}

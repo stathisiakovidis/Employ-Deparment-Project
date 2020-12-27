@@ -10,21 +10,14 @@ public class Project {
 	private ArrayList<Employee> employeesOnProject = new ArrayList<Employee>();
 	private Date start, end;
 	
-	public Project(String projName, String projDescription, int earnings, 
-			int spendings, Date start, Date end) {
-		super();
+	public Project(String projName, String projDescription, int earnings, Date start, Date end) {
 		this.projName = projName;
 		this.projDescription = projDescription;
 		this.earnings = earnings;
-		this.spendings = spendings;
 		this.start = start;
 		this.end = end;
 	}
 
-	public Project() {
-		
-	}
-	
 	public Employee getProjectManager() {
 		return projectManager;
 	}
