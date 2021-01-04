@@ -44,7 +44,7 @@ public class AddEmployeeFrame implements ActionListener{
 		lastNameLabel.setBorder(bor);
 		lastNameText = new JTextField(18);
 		
-		birthdayDateLabel = new JLabel("Ημερ/νία");
+		birthdayDateLabel = new JLabel("Ημερ/νία Γέννησης");
 		birthdayDateLabel.setFont(font);
 		birthdayDateLabel.setBorder(bor);
 		createCalender();
@@ -143,8 +143,10 @@ public class AddEmployeeFrame implements ActionListener{
 				
 				Main.allEmployees.add(new Employee(firstName, lastName, birtdayDate, familyCondition, numOfChildren,
 						yearOfRecruitment, specialization, degree));
+				JOptionPane.showMessageDialog(frame, "Τα στοχεία καταχωρήθηκαν με επιτυχία!");
+				frame.dispose();
 			}catch(NumberFormatException e1) {
-				JOptionPane.showMessageDialog(null, "Παρακαλώ εισάγετε σωστό αριθμό παιδιών ή σωστό έτος πρόσληψης!");
+				JOptionPane.showMessageDialog(frame, "Παρακαλώ εισάγετε σωστό αριθμό παιδιών ή σωστό έτος πρόσληψης!");
 			}
 		}
 	}

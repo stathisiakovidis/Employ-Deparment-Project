@@ -9,13 +9,13 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 public class AddDepartmentFrame implements ActionListener{
-	JFrame frame;
-	JLabel depNameLabel, depDescriptionLabel;
-	JTextField depNameText;
-	JTextArea depDescriptionText;
-	JButton confirmButton;
-	JPanel depPanel;
-	JComboBox<String> directorMenu;
+	private JFrame frame;
+	private JLabel depNameLabel, depDescriptionLabel;
+	private JTextField depNameText;
+	private JTextArea depDescriptionText;
+	private JButton confirmButton;
+	private JPanel depPanel;
+	private JComboBox<String> directorMenu;
 	private JLabel depDirectorLabel;
 	
 	public AddDepartmentFrame() {
@@ -70,6 +70,7 @@ public class AddDepartmentFrame implements ActionListener{
 				Department d = new Department(depNameText.getText(),depDescriptionText.getText());
 				Main.allDeparments.add(d);
 				JOptionPane.showMessageDialog(frame, "Το τμήμα <<" + depNameText.getText() + ">> καταχωρήθηκε με επιτυχία!");
+				frame.dispose();
 			}
 		}
 	}
@@ -81,7 +82,7 @@ public class AddDepartmentFrame implements ActionListener{
 			names.add(e.getFirstName() +" "+ e.getLastName());	
 		}
 		
-		if(names.isEmpty() ==false) {
+		if(names.isEmpty() == false) {
 			choices = (String[]) names.toArray();
 		}
 		

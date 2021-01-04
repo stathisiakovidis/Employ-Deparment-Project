@@ -21,7 +21,8 @@ public class GUI implements ActionListener{
 	JButton addDepartmentButton = new JButton("Εισαγωγή τμήματος");
 	JButton addEmployeeButton = new JButton("Εισαγωγή υπαλλήλου");
 	JButton addProjectButton = new JButton("Εισαγωγή έργων");
-	JButton setProjectButton = new JButton("Εμφάνιση αναθέσεων");
+	JButton setEmployeeToDepButton = new JButton("Ανάθεση υπαλλήλου σε τμήματα");
+	JButton setEmployeeToProjectButton = new JButton("Ανάθεση υπαλλήλου σε έργο");
 	JButton updateButton = new JButton("Ενημέρωση δεδομένων");
 	JButton displayDeprtmentButton = new JButton("Εμφάνιση όλων των τμημάτων");
 	JButton displayEmployeeButton = new JButton("Εμφάνιση όλων των υπαλλήλων");
@@ -30,7 +31,7 @@ public class GUI implements ActionListener{
 	JButton displayEarningsButton = new JButton("Εμφάνιση εσόδων της εταιρίας");
 
 	public GUI() {
-		// Dhmiourgia tou Frame provolis
+		// Dhmiourgia tou kentrikou frame
 		frame = new JFrame("Company's Name");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(650, 550);
@@ -83,7 +84,8 @@ public class GUI implements ActionListener{
 		
 		//Enotita anathesis kai enhmerwsis
 		panel2.add(setProjectLabel);
-		panel2.add(setProjectButton);
+		panel2.add(setEmployeeToDepButton);
+		panel2.add(setEmployeeToProjectButton);
 		panel2.add(updateButton);
 		
 		//Enotita emfanisis upallilwn ergwn kai tmhmatwn
@@ -97,6 +99,8 @@ public class GUI implements ActionListener{
 		addDepartmentButton.addActionListener(this);
 		addEmployeeButton.addActionListener(this);
 		addProjectButton.addActionListener(this);
+		setEmployeeToDepButton.addActionListener(this);
+		setEmployeeToProjectButton.addActionListener(this);
 
 		//Eisagwgi twn 2 upopanel sto kuriws panel kai
 		//xwrismos me mia katheti grammi
@@ -129,8 +133,10 @@ public class GUI implements ActionListener{
 			new AddEmployeeFrame();
 		}else if(e.getSource() == addProjectButton) {
 			new AddProjectFrame();
-		}else if(e.getSource() == setProjectButton) {
-			
+		}else if(e.getSource() == setEmployeeToDepButton) {
+			new AddEmployeeToDepartmentFrame();
+		}else if(e.getSource() == setEmployeeToProjectButton) {
+			new AddEmployeeToProjectFrame();
 		}else if(e.getSource() == updateButton) {
 			
 		}else if(e.getSource() == displayDeprtmentButton) {

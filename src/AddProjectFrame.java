@@ -101,6 +101,8 @@ public class AddProjectFrame implements ActionListener{
 				Date endDate = (Date) datePicker.getModel().getValue();
 				int projectEarnings = Integer.valueOf(projectEarningsText.getText());
 				Main.allProjects.add(new Project(projectName, projectDescription, projectEarnings, currentDate, endDate));
+				JOptionPane.showMessageDialog(null, "Τα στοιχεία καταχωρήθηκαν με επιτυχία!");
+				frame.dispose();
 			}catch(NumberFormatException e2) {
 				JOptionPane.showMessageDialog(null, "Παρακαλώ εισάγετε σωστό αριθμό προϋπολογισμού!");
 			}
