@@ -93,15 +93,15 @@ public class Employee {
 			this.salary += 180;
 		}
 		
-		if(degree.equals("BSc")) {
+		if(degree.equals("Πανεπιστημιακή Εκπαίδευση")) {
 			this.salary += 80;
 		}
 		
-		if(degree.equals("MSc")) {
+		if(degree.equals("Μεταπτυχιακό Δίπλωμα")) {
 			this.salary += 160;
 		}
 		
-		if(degree.equals("PhD")) {
+		if(degree.equals("Διδακτορικό Δίπλωμα")) {
 			this.salary += 240;
 		}
 		

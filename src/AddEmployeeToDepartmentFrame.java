@@ -44,7 +44,7 @@ public class AddEmployeeToDepartmentFrame implements ActionListener{
 		employeeToDepPanel.add(confirmButton);
 		
 		frame.getContentPane().add(employeeToDepPanel);
-		frame.setSize(400, 120);
+		frame.setSize(600, 120);
 		frame.setVisible(true);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		frame.setLocation(dim.width / 2 - frame.getSize().width / 2, dim.height / 2 - frame.getSize().height / 2);
@@ -58,7 +58,7 @@ public class AddEmployeeToDepartmentFrame implements ActionListener{
 		}
 		
 		if(departments.isEmpty() == false) {
-			choices = (String[]) departments.toArray();
+			choices = departments.stream().toArray(String[]::new);
 		}
 		
 		departmentMenu = new JComboBox<>(choices);
@@ -73,7 +73,7 @@ public class AddEmployeeToDepartmentFrame implements ActionListener{
 		}
 		
 		if(names.isEmpty() == false) {
-			choices = (String[]) names.toArray();
+			choices = names.stream().toArray(String[]::new);
 		}
 		
 		employeeMenu = new JComboBox<>(choices);

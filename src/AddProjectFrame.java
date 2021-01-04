@@ -75,7 +75,7 @@ public class AddProjectFrame implements ActionListener{
 	    projectPanel.setMaximumSize(new Dimension(300, 500));
 				
 		frame.getContentPane().add(projectPanel);
-		frame.setSize(400, 550);
+		frame.setSize(500, 550);
 		frame.setVisible(true);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		frame.setLocation(dim.width / 2 - frame.getSize().width / 2, dim.height / 2 - frame.getSize().height / 2);

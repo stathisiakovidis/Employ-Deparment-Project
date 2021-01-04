@@ -55,7 +55,7 @@ public class Project {
 	}
 
 	public int getEarnings() {
-		return earnings;
+		return earnings - spendings - calculateProjectsSalaries();
 	}
 
 	public void setEarnings(int earnings) {
@@ -85,11 +85,6 @@ public class Project {
 		}
 		
 		return projectSalaries;
-	}
-	
-	public int calculateProjectEarnings() {
-		this.earnings = earnings - spendings - calculateProjectsSalaries();
-		return this.earnings;
 	}
 	
 }

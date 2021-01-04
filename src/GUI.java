@@ -101,6 +101,9 @@ public class GUI implements ActionListener{
 		addProjectButton.addActionListener(this);
 		setEmployeeToDepButton.addActionListener(this);
 		setEmployeeToProjectButton.addActionListener(this);
+		displayDeprtmentButton.addActionListener(this);
+		displayEmployeeButton.addActionListener(this);
+		displayProjectButton.addActionListener(this);
 
 		//Eisagwgi twn 2 upopanel sto kuriws panel kai
 		//xwrismos me mia katheti grammi
@@ -140,13 +143,13 @@ public class GUI implements ActionListener{
 		}else if(e.getSource() == updateButton) {
 			
 		}else if(e.getSource() == displayDeprtmentButton) {
-			
+			new DisplayDepartmentFrame();
 		}else if(e.getSource() == displayEarningsButton) {
 			
 		}else if(e.getSource() == displayEmployeeButton) {
-			
+			new DisplayEmployeeFrame();
 		}else if(e.getSource() == displayProjectButton) {
-			
+			new DisplayProjectFrame();
 		}else if(e.getSource() == displaySalariesButton) {
 			
 		}else if (e.getSource() == m11) {

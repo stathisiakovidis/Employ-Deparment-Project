@@ -43,7 +43,7 @@ public class AddEmployeeToProjectFrame implements ActionListener{
 		employeeToDepPanel.add(confirmButton);
 		
 		frame.getContentPane().add(employeeToDepPanel);
-		frame.setSize(400, 120);
+		frame.setSize(600, 120);
 		frame.setVisible(true);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		frame.setLocation(dim.width / 2 - frame.getSize().width / 2, dim.height / 2 - frame.getSize().height / 2);
@@ -57,7 +57,7 @@ public class AddEmployeeToProjectFrame implements ActionListener{
 		}
 		
 		if(projects.isEmpty() == false) {
-			choices = (String[]) projects.toArray();
+			choices = projects.stream().toArray(String[]::new);
 		}
 		
 		projectMenu = new JComboBox<>(choices);
@@ -72,7 +72,7 @@ public class AddEmployeeToProjectFrame implements ActionListener{
 		}
 		
 		if(names.isEmpty() == false) {
-			choices = (String[]) names.toArray();
+			choices = names.stream().toArray(String[]::new);
 		}
 		
 		employeeMenu = new JComboBox<>(choices);
@@ -89,8 +89,9 @@ public class AddEmployeeToProjectFrame implements ActionListener{
 			}else {
 				for (Project p: Main.allProjects) {
 					for (Employee emp: Main.allEmployees) {
-						if (p.getProjName().equals(projectSelection)) {
+						if (p.getProjName().equals(projectSelection) && employeeSelection.equals(emp.getFirstName() + " " + emp.getLastName())) {
 							p.addEmployOnProject(emp);
+							break;
 						}
 					}
 				}

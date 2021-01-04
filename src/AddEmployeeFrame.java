@@ -98,7 +98,7 @@ public class AddEmployeeFrame implements ActionListener{
 	    employeePane.setMaximumSize(new Dimension(300, 400));
 
 		frame.getContentPane().add(employeePane);
-		frame.setSize(400, 400);
+		frame.setSize(500, 500);
 		frame.setVisible(true);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		frame.setLocation(dim.width / 2 - frame.getSize().width / 2, dim.height / 2 - frame.getSize().height / 2);
