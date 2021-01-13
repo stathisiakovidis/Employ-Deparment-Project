@@ -2,7 +2,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -38,7 +37,8 @@ public class GUI implements ActionListener{
 
 		createMenu();
 		createPanels();
-
+		
+		//Ruthmiseis gia tin diataxi tou kuriou frame stin othoni
 		frame.getContentPane().add(BorderLayout.NORTH, menuBar);
 		frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
 		frame.setVisible(true);
@@ -96,6 +96,7 @@ public class GUI implements ActionListener{
 		panel2.add(displaySalariesButton);
 		panel2.add(displayEarningsButton);
 		
+		//Prosthiki listener se ola ta koumpia tou programmatos
 		addDepartmentButton.addActionListener(this);
 		addEmployeeButton.addActionListener(this);
 		addProjectButton.addActionListener(this);
@@ -104,6 +105,7 @@ public class GUI implements ActionListener{
 		displayDeprtmentButton.addActionListener(this);
 		displayEmployeeButton.addActionListener(this);
 		displayProjectButton.addActionListener(this);
+		displayEarningsButton.addActionListener(this);
 
 		//Eisagwgi twn 2 upopanel sto kuriws panel kai
 		//xwrismos me mia katheti grammi
@@ -127,7 +129,8 @@ public class GUI implements ActionListener{
 		m11.addActionListener(this);
 		m22.addActionListener(this);
 	}
-
+	
+	//Methodos diaxeirisis twn event apo ta koumpia tou programmatos kai anoigma twn epimerous frame
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == addDepartmentButton) {
@@ -144,26 +147,25 @@ public class GUI implements ActionListener{
 			
 		}else if(e.getSource() == displayDeprtmentButton) {
 			new DisplayDepartmentFrame();
-		}else if(e.getSource() == displayEarningsButton) {
-			
+		}else if(e.getSource() == displayEarningsButton) { //Grigoros upologismos twn esodwn tis etairias
+			int earningsTotal=0;
+			for (Project proj: Main.allProjects) {
+				earningsTotal += proj.getEarnings();
+			}
+			JOptionPane.showMessageDialog(null, "Τα συνολικά έσοδα της εταιρίας είναι: " + earningsTotal + "€");
 		}else if(e.getSource() == displayEmployeeButton) {
 			new DisplayEmployeeFrame();
 		}else if(e.getSource() == displayProjectButton) {
 			new DisplayProjectFrame();
 		}else if(e.getSource() == displaySalariesButton) {
 			
-		}else if (e.getSource() == m11) {
-		    // on Windows, retrieve the path of the "Program Files" folder
-		    File file = new File(System.getenv("programfiles"));
-
-		    try {
-		      if (Desktop.isDesktopSupported()) {
-		         Desktop desktop = Desktop.getDesktop();
-		         desktop.open(file);
-		      	}
-		     }catch (IOException e1){  
-		    	 
-		     }
+		}else if (e.getSource() == m11) { //Anoigma tou explorer systimatos gia tin eisagwgi toy arxeioy sto programma
+			JFileChooser chooser = new JFileChooser(new File("./Files"));
+			int option = chooser.showOpenDialog(null);
+			if (option == JFileChooser.APPROVE_OPTION) {
+			  File selectedFile = chooser.getSelectedFile();
+			  new FileReader(selectedFile);
+			}
 	
 		 }else if (e.getSource() == m22) {
 			

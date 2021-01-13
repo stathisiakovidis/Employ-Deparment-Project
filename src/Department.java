@@ -1,22 +1,17 @@
 import java.util.ArrayList;
-
+//Afti einai h klasi Tmhma. Perilambanei ola ta apaitoumena stoixeia tou tmhmatos
 public class Department {
-	private String depName;
-	private String depDescription;
-	private DepartmentDirector departmentDirector;
-	private ArrayList<Employee> allDepartmentsEmployees = new ArrayList<>();
+	private String depName; //Onoma
+	private String depDescription; //Perigrafi
+	private DepartmentDirector departmentDirector; //Dieuthintis tmhmatos
+	private ArrayList<Employee> allDepartmentsEmployees = new ArrayList<>(); //Ypallhloi tmhmatos
 	
-	
-	public Department(String depName, String depDescription) {
-		super();
+	public Department(String depName, String depDescription) { //Constructor tis klasis me orismata to onoma kai tin perigrafi.
 		this.depName = depName;
 		this.depDescription = depDescription;
 	}
-
-	public Department() {
-		
-	}
 	
+	//Getters kai setters gia oles tis metablites
 	public String getDepName() {
 		return depName;
 	}
@@ -46,12 +41,12 @@ public class Department {
 		this.departmentDirector = departmentDirector;
 	}
 	
-	public void moveToOtherDepartment(Employee employee, Department department) {
+	public void moveToOtherDepartment(Employee employee, Department department) { //Methodos metaforas enos upallilou apo ena tmhma se ena allo
 		this.allDepartmentsEmployees.remove(employee);
 		department.allDepartmentsEmployees.add(employee);
 	}
 	
-	public int calculateDepartmentsYearSalaries() {
+	public int calculateDepartmentsYearSalaries() { //Sunartisi mupologismou tis misthodosias olwn twn upallilwn toy tmhmatos
 		int yearSalariesCost = 0;
 		for(Employee e : allDepartmentsEmployees) {
 			yearSalariesCost += e.calculateYearSalary(); 

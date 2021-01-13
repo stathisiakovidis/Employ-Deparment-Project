@@ -1,7 +1,5 @@
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
