@@ -1,3 +1,8 @@
+/* 
+ * Onom/numo: Laskakis Spiridon - Karamouza Konstantina
+ * AM: 3212019109 - 3212016057
+ */ 
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -13,7 +18,7 @@ import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
-
+//Afti einai i klasi eisagwgis upallilou apo ton xristi me grafiki diepafi
 public class AddEmployeeFrame implements ActionListener{
 	private JFrame frame;
 	private JLabel firstNameLabel, lastNameLabel, birthdayDateLabel, familyLabel, 
@@ -26,13 +31,17 @@ public class AddEmployeeFrame implements ActionListener{
 	private JComboBox<String> familyConditionMenu, degreeMenu;
 	private JButton confirmButton;
 
+	//Constructor
 	public AddEmployeeFrame() {
+		//Border kai font gia tin emfanisimotita
 		Font font = new Font("Sans Serif", Font.BOLD, 16);
 		Border bor = BorderFactory.createEmptyBorder(0, 0, 0, 10);
+		// Dhmiourgia tou kentrikou frame
 		frame = new JFrame("Add Employee");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 		
+		//Ruthmiseis emfanisis twn Label kai twn Textbox
 		employeePane = new JPanel();
 		firstNameLabel = new JLabel("Όνομα");
 		firstNameLabel.setFont(font);
@@ -47,12 +56,10 @@ public class AddEmployeeFrame implements ActionListener{
 		birthdayDateLabel = new JLabel("Ημερ/νία Γέννησης");
 		birthdayDateLabel.setFont(font);
 		birthdayDateLabel.setBorder(bor);
-		createCalender();
 		
 		familyLabel = new JLabel("Οικ/νιακή Κατάσταση");
 		familyLabel.setFont(font);
 		familyLabel.setBorder(bor);
-		createFamilyConditionMenu();
 		
 		numOfChildrenLabel = new JLabel("Αριθμός Παιδιών");
 		numOfChildrenLabel.setFont(font);
@@ -72,11 +79,21 @@ public class AddEmployeeFrame implements ActionListener{
 		degreeLabel = new JLabel("Επίπεδο Σπουδών");
 		degreeLabel.setFont(font);
 		degreeLabel.setBorder(bor);
+		
+		//Hmerologio gia tin epilogi hmeromhnias gennisis
+		createCalender();
+		
+		//Menou epilogwn oikogeneiakis katastasis
+		createFamilyConditionMenu();
+		
+		//Menou epilogwn bathmidas ekpaideusis
 		createDegreeMenu();
 		
+		//Dhmiourgia koumpiou apothikeusis kai eisagwgi listener
 		confirmButton = new JButton("Αποθήκευση");
 		confirmButton.addActionListener(this);
 		
+		//Prosthiki olwn twn antikeimenwn sto Panel
 		employeePane.add(firstNameLabel);
 		employeePane.add(firstNameText);
 		employeePane.add(lastNameLabel);
@@ -97,6 +114,7 @@ public class AddEmployeeFrame implements ActionListener{
 		
 	    employeePane.setMaximumSize(new Dimension(300, 400));
 
+	    //Emfanisi tou frame ston xristi
 		frame.getContentPane().add(employeePane);
 		frame.setSize(500, 500);
 		frame.setVisible(true);
@@ -104,6 +122,7 @@ public class AddEmployeeFrame implements ActionListener{
 		frame.setLocation(dim.width / 2 - frame.getSize().width / 2, dim.height / 2 - frame.getSize().height / 2);
 	}
 	
+	//Methodos dhmiourgias hmerologiou gia tin epilogi hmeromhnias gennisis toy upallilou
 	public void createCalender() {
 		UtilDateModel model = new UtilDateModel();
 		model.setDate(1990, 8, 24);
@@ -115,18 +134,21 @@ public class AddEmployeeFrame implements ActionListener{
 		datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
 	}
 	
+	//Menou epilogwn gia oikogeneiaki katastasi upallilou
 	public void createFamilyConditionMenu() {
 		String[] choices = {"Επιλογή..", "Άγαμος", "Έγγαμος"};
 		familyConditionMenu = new JComboBox<>(choices);
 		
 	}
 	
+	//Menou epilogwn gia bathmida ekpaideusis upallilou
 	public void createDegreeMenu() {
 		String[] choices = {"Επιλογή..","Δευτεροβάθμια Εκπαίδευση", "Πανεπιστημιακή Εκπαίδευση", "Μεταπτυχιακό Δίπλωμα", "Διδακτορικό Δίπλωμα"};
 		degreeMenu = new JComboBox<>(choices);
 		
 	}
 	
+	//Methodos pou energopoieitai otan o xristis patisi to koumpi apothikeusis
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == confirmButton) {			

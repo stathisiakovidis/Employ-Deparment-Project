@@ -1,6 +1,11 @@
+/* 
+ * Onom/numo: Laskakis Spiridon - Karamouza Konstantina
+ * AM: 3212019109 - 3212016057
+ */ 
+
 import java.util.Calendar;
 import java.util.Date;
-
+//Afti einai h klash Ypallhllos. Perilambanei ola ta apaitoumena stoixeia tou upallilou
 public class Employee {
 	private String firstName;
 	private String lastName;
@@ -13,8 +18,10 @@ public class Employee {
 	private int salary;
 	private boolean isProjectManager;
 	
+	//Constructor ths klasis me orismata to onoma, to eponumo, thn oikogeneiakh katastasi, thn hmeromhnia gennisi
+	//ton arithmo twn paidiwn, to etos proslipsis, thn eidikotita kai to epipedo morfwsis tou upallilou
 	public Employee(String firstName, String lastName, Date birtdayDate, String familyCondition, int childrenNum,
-			int recruitementYear, String specialization, String degree) {
+			int recruitementYear, String specialization, String degree) { 
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birtdayDate = birtdayDate;
@@ -27,6 +34,7 @@ public class Employee {
 		setSalary();
 	}
 	
+	//Getters kai setters gia oles tis metablites
 	public String getFirstName() {
 		return firstName;
 	}
@@ -76,16 +84,16 @@ public class Employee {
 		return salary;
 	}
 	
-	public boolean isProjectManager() {
+	public boolean isProjectManager() { //Sunartisi elegxou gia to ean o upallilos einai project manager se kapoio ergo
 		return isProjectManager;
 	}
 
-	public void setProjectManager(boolean isProjectManager) {
+	public void setProjectManager(boolean isProjectManager) { //Methodos gia ton orismo upallilou ws project manager kai auxisi toy misthou toy
 		this.isProjectManager = isProjectManager;
 		this.salary += 100;
 	}
-
-	public void setSalary() {
+	
+	public void setSalary() { //Methodos upologismou tou misthou tou upallilou opws orizei h ekfwnisi
 		this.salary = 750;
 		if(childrenNum <= 3) {
 			this.salary += childrenNum * 60;
@@ -108,13 +116,14 @@ public class Employee {
 		int difYear = Calendar.getInstance().get(Calendar.YEAR) - recruitementYear;
 		this.salary += (difYear/3) * 40;
 		
+		//Ean o upallilos einai deuthintis tmhmatos o misthos auxanetai
 		if(this instanceof DepartmentDirector) {
 			this.salary += 400;
 		}
 		
 	}
 	
-	public int calculateYearSalary() {
+	public int calculateYearSalary() { //Sunartisi upologismou tou ethsiou misthou tou upallilou
 		int yearSalary = 12 * this.salary;
 		return yearSalary;
 	}

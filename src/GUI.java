@@ -1,3 +1,8 @@
+/* 
+ * Onom/numo: Laskakis Spiridon - Karamouza Konstantina
+ * AM: 3212019109 - 3212016057
+ */ 
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -5,7 +10,7 @@ import java.io.File;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-
+//Afti einai h klasi tou kuriou grafikou periballontos tou programmatos
 public class GUI implements ActionListener{
 	JFrame frame;
 	JMenuBar menuBar;
@@ -28,7 +33,8 @@ public class GUI implements ActionListener{
 	JButton displayProjectButton = new JButton("Εμφάνιση όλων των έργων");
 	JButton displaySalariesButton = new JButton("Εμφάνιση μισθοδοσίας υπαλλήλων");
 	JButton displayEarningsButton = new JButton("Εμφάνιση εσόδων της εταιρίας");
-
+	
+	//Constructor tis klasis
 	public GUI() {
 		// Dhmiourgia tou kentrikou frame
 		frame = new JFrame("Company's Name");
@@ -106,6 +112,7 @@ public class GUI implements ActionListener{
 		displayEmployeeButton.addActionListener(this);
 		displayProjectButton.addActionListener(this);
 		displayEarningsButton.addActionListener(this);
+		displaySalariesButton.addActionListener(this);
 
 		//Eisagwgi twn 2 upopanel sto kuriws panel kai
 		//xwrismos me mia katheti grammi
@@ -147,7 +154,7 @@ public class GUI implements ActionListener{
 			
 		}else if(e.getSource() == displayDeprtmentButton) {
 			new DisplayDepartmentFrame();
-		}else if(e.getSource() == displayEarningsButton) { //Grigoros upologismos twn esodwn tis etairias
+		}else if(e.getSource() == displayEarningsButton) { //Grigoros upologismos twn esodwn tis etairias kai emfanisi ston xristi
 			int earningsTotal=0;
 			for (Project proj: Main.allProjects) {
 				earningsTotal += proj.getEarnings();
@@ -157,8 +164,12 @@ public class GUI implements ActionListener{
 			new DisplayEmployeeFrame();
 		}else if(e.getSource() == displayProjectButton) {
 			new DisplayProjectFrame();
-		}else if(e.getSource() == displaySalariesButton) {
-			
+		}else if(e.getSource() == displaySalariesButton) { //Grigoros upologismos twn misthwn twn upallilwn tis etairias kai emfanisi ston xristi
+			int salariesTotal=0;
+			for (Employee emp: Main.allEmployees) {
+				salariesTotal += emp.calculateYearSalary();
+			}
+			JOptionPane.showMessageDialog(null, "Τα συνολικά ετήσια έξοδα της εταιρίας σε μισθούς είναι: " + salariesTotal + "€");
 		}else if (e.getSource() == m11) { //Anoigma tou explorer systimatos gia tin eisagwgi toy arxeioy sto programma
 			JFileChooser chooser = new JFileChooser(new File("./Files"));
 			int option = chooser.showOpenDialog(null);

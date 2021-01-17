@@ -1,3 +1,8 @@
+/* 
+ * Onom/numo: Laskakis Spiridon - Karamouza Konstantina
+ * AM: 3212019109 - 3212016057
+ */ 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
@@ -43,6 +48,27 @@ public class FileReader {
 					String dDescription = parts[1]; //To 2o stoixeio tou pinaka einai h perigrafi toy tmhmtos
 					Department department = new Department(dName, dDescription); //Dhmiourgia department metablitis
 					Main.allDeparments.add(department); //Eisagwgi department ston pinaka twn department sthn main
+				}
+			}else if(file.getName().equals("Employees.txt")) {
+				while (scanner.hasNextLine()) {
+					String data = scanner.nextLine();
+					String[] parts = data.split("\\:"); //Me ton entopismou toy sumbolou : xwrizoyme tis plirofories kai tis eisagoume se enan pinaka
+					String eName = parts[0]; //To 1o stoixeio tou pinaka einai to onoma tou upallhlou
+					String eLastName = parts[1]; //To 2o stoixeio tou pinaka einai tou epithetou tou upallhlou
+					try {
+						Date eBirtday = Main.dateFormat.parse(parts[2]); //To 3o stoixeio tou pinaka einai h hmeromhnia gennisis tou upallhlou
+						String eFamilyCondition = parts[3]; //To 4o stoixeio tou pinaka einai h oikogeneiaki katastasi tou upallhlou
+						int eNumOfChildren = Integer.valueOf(parts[4]); //To 5o stoixeio tou pinaka einai h oikogeneiaki katastasi tou upallhlou
+						int eYearOfRecruitment = Integer.valueOf(parts[5]); //To 6o stoixeio tou pinaka einai to etos proslipsis tou upallhlou
+						String eSpecialization = parts[6]; //To 7o stoixeio tou pinaka einai h eidikotita tou upallhlou
+						String eDegree = parts[7]; //To 8o stoixeio tou pinaka einai h ekpaideusi tou upallhlou
+						Employee newEmployee = new Employee(eName, eLastName, eBirtday, eFamilyCondition, 
+								eNumOfChildren, eYearOfRecruitment, eSpecialization, eDegree); //Dhmiourgia metablitis upallilou
+						Main.allEmployees.add(newEmployee); //Eisagwgi upallilou ston pinaka twn upallilwn sthn main
+					} catch (ParseException e) {
+						JOptionPane.showMessageDialog(null, "Το αρχείο δεν είναι σωστά δομημένο!"); //Elegxos orthotitas twn dedomenwn
+						e.printStackTrace();
+					}					
 				}
 			}
 		} catch (FileNotFoundException e) {

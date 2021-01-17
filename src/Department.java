@@ -1,3 +1,8 @@
+/* 
+ * Onom/numo: Laskakis Spiridon - Karamouza Konstantina
+ * AM: 3212019109 - 3212016057
+ */ 
+
 import java.util.ArrayList;
 //Afti einai h klasi Tmhma. Perilambanei ola ta apaitoumena stoixeia tou tmhmatos
 public class Department {

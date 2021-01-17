@@ -1,6 +1,11 @@
+/* 
+ * Onom/numo: Laskakis Spiridon - Karamouza Konstantina
+ * AM: 3212019109 - 3212016057
+ */ 
+
 import java.util.ArrayList;
 import java.util.Date;
-
+//Afti einai h klasi Ergo. Perilambanei ola ta apaitoumena stoixeia enos ergou
 public class Project {
 	private String projName;
 	private String projDescription;
@@ -10,6 +15,7 @@ public class Project {
 	private ArrayList<Employee> employeesOnProject = new ArrayList<Employee>();
 	private Date start, end;
 	
+	//Constructor me orismata to onoma, tin perigrafi, ta esoda, tin hmerominia enarxis kai peratwsis toy ergou
 	public Project(String projName, String projDescription, int earnings, Date start, Date end) {
 		this.projName = projName;
 		this.projDescription = projDescription;
@@ -17,7 +23,8 @@ public class Project {
 		this.start = start;
 		this.end = end;
 	}
-
+	
+	//Getters kai Setters gia oles tis metablites
 	public Employee getProjectManager() {
 		return projectManager;
 	}
@@ -53,7 +60,8 @@ public class Project {
 	public void setProjDescription(String projDescription) {
 		this.projDescription = projDescription;
 	}
-
+	
+	//Sinartisi upologismou twn esodwn apo to ergo mazi me ta exoda kai tous misthous
 	public int getEarnings() {
 		return earnings - spendings - calculateProjectsSalaries();
 	}
@@ -78,6 +86,7 @@ public class Project {
 		this.employeesOnProject.add(e);
 	}
 	
+	//Boithitiki sunartisi upologismou twn misthwn twn upallilwn tou ergou
 	public int calculateProjectsSalaries() {
 		int projectSalaries = 0;
 		for(Employee e : employeesOnProject) {

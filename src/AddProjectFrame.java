@@ -1,3 +1,8 @@
+/* 
+ * Onom/numo: Laskakis Spiridon - Karamouza Konstantina
+ * AM: 3212019109 - 3212016057
+ */ 
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -20,7 +25,7 @@ import javax.swing.border.Border;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
-
+//Afti einai h klasi eisagwgis ergou apo to xristi me grafiki diepafi
 public class AddProjectFrame implements ActionListener{
 	
 	private JFrame frame;
@@ -31,13 +36,17 @@ public class AddProjectFrame implements ActionListener{
 	private JDatePickerImpl datePicker;
 	private JTextField projectEarningsText, projectNameText;
 
+	//Constructor
 	public AddProjectFrame() {
+		//Border kai font gia tin emfanisimotita
 		Font font = new Font("Sans Serif", Font.BOLD, 16);
 		Border bor = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+		// Dhmiourgia tou kentrikou frame
 		frame = new JFrame("Add Project");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 		
+		//Ruthmiseis emfanisis twn Label kai twn Textbox
 		projectPanel = new JPanel();
 		confirmButton = new JButton("Αποθήκευση");
 		confirmButton.addActionListener(this);
@@ -55,13 +64,16 @@ public class AddProjectFrame implements ActionListener{
 		projectEndDateLabel = new JLabel("Ημ/νια Περάτωσης");
 		projectEndDateLabel.setFont(font);
 		projectEndDateLabel.setBorder(bor);
-		createCalender();
 		
 		projectEarningsLabel = new JLabel("Αρχικός Προϋπολογισμός");
 		projectEarningsLabel.setFont(font);
 		projectEarningsLabel.setBorder(bor);
 		projectEarningsText = new JTextField(6);
-				
+		
+		//Hmerologio gia tin epilogi hmeromhnias peratwsis toy ergou
+		createCalender();
+
+		//Prosthiki olwn twn antikeimenwn sto Panel
 		projectPanel.add(projectNameLabel);
 		projectPanel.add(projectNameText);
 		projectPanel.add(projectDescriptionLabel);
@@ -74,6 +86,7 @@ public class AddProjectFrame implements ActionListener{
 		
 	    projectPanel.setMaximumSize(new Dimension(300, 500));
 				
+	    //Emfanisi tou frame ston xristi
 		frame.getContentPane().add(projectPanel);
 		frame.setSize(500, 550);
 		frame.setVisible(true);
@@ -81,6 +94,7 @@ public class AddProjectFrame implements ActionListener{
 		frame.setLocation(dim.width / 2 - frame.getSize().width / 2, dim.height / 2 - frame.getSize().height / 2);
 	}
 	
+	//Methodos dhmiourgias hmerologiou gia tin epilogi hmeromhnias peratwsis tou ergou
 	public void createCalender() {
 		UtilDateModel model = new UtilDateModel();
 		Properties p = new Properties();
@@ -91,6 +105,7 @@ public class AddProjectFrame implements ActionListener{
 		datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
 	}
 
+	//Methodos pou energopoieitai otan o xristis patisi to koumpi apothikeusis
 	@Override
 	public void actionPerformed(ActionEvent e1) {
 		if(e1.getSource() == confirmButton) {

@@ -1,9 +1,14 @@
+/* 
+ * Onom/numo: Laskakis Spiridon - Karamouza Konstantina
+ * AM: 3212019109 - 3212016057
+ */ 
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.swing.JFormattedTextField.AbstractFormatter;
-
+//Boithiki klasi gia tin emfanisi tou hmerologiou se grafiko periballon
 public class DateLabelFormatter extends AbstractFormatter {
 
     private String datePattern = "dd-MM-yyyy";
