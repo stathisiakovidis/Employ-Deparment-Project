@@ -62,7 +62,7 @@ public class GUI implements ActionListener{
 		Border bor = BorderFactory.createEmptyBorder(20, 10, 10, 10);
 
 		//Eisagogi fotografias sto panel1 gia thn emfanisimotita
-		img = new ImageIcon("images/IntroImage.png");
+		img = new ImageIcon("./Images/IntroImage.png");
 		Image image = img.getImage(); // transform it
 		Image newimg = image.getScaledInstance(300, 250, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
 		img = new ImageIcon(newimg); // transform it back
