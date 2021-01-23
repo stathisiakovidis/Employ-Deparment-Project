@@ -107,7 +107,8 @@ public class AddEmployeeToDepartmentFrame implements ActionListener{
 			}else {
 				for (Department d: Main.allDeparments) {
 					for (Employee emp: Main.allEmployees) {
-						if (d.getDepName().equals(departmentSelection)) {
+						String name = emp.getFirstName() + " " + emp.getLastName();
+						if (d.getDepName().equals(departmentSelection) && name.equals(employeeSelection)) {
 							d.setEmployeeToDepartment(emp);
 						}
 					}
